@@ -47,5 +47,34 @@
             </ul>
         </div>
     </footer>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Get all navigation links
+    const navLinks = document.querySelectorAll("header nav ul li a");
+
+    // Add click event listener to each link
+    navLinks.forEach(link => {
+        link.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            // Remove 'active' class from all sections
+            document.querySelectorAll("section").forEach(section => {
+                section.classList.remove("active");
+            });
+
+            // Get the href attribute of the clicked link (e.g., 'about.html')
+            const href = this.getAttribute("href").substring(0, this.getAttribute("href").lastIndexOf("."));
+
+            // Find the corresponding section and add 'active' class to display it
+            const section = document.querySelector(`.${href}`);
+            if (section) {
+                section.classList.add("active");
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>
