@@ -1,3 +1,6 @@
+/* Add the following styles for section sliding animation */
+
+/* Reset default margin, padding, box-sizing, and font */
 * {
     margin: 0;
     padding: 0;
@@ -5,6 +8,7 @@
     font-family: Arial, sans-serif;
 }
 
+/* Body styles */
 body {
     line-height: 1.6;
     background: linear-gradient(135deg, #000 30%, #8B0000 100%);
@@ -19,6 +23,7 @@ body {
     margin: 0 auto;
 }
 
+/* Header styles */
 header {
     background: rgba(0, 0, 0, 0.8);
     color: #fff;
@@ -46,6 +51,7 @@ header nav ul li a {
     text-decoration: none;
 }
 
+/* Hero section styles */
 .hero {
     background: rgba(139, 0, 0, 0.8);
     padding: 2rem 0;
@@ -54,6 +60,7 @@ header nav ul li a {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    animation: slideIn 0.5s forwards; /* Added animation for initial load */
 }
 
 .hero h2 {
@@ -74,6 +81,7 @@ header nav ul li a {
     border-radius: 5px;
 }
 
+/* Features section styles */
 .features {
     background: rgba(0, 0, 0, 0.8);
     padding: 2rem 0;
@@ -85,6 +93,7 @@ header nav ul li a {
     color: #fff;
 }
 
+/* About section styles */
 .about {
     background: rgba(139, 0, 0, 0.8);
     padding: 2rem 0;
@@ -95,6 +104,7 @@ header nav ul li a {
     color: #ddd;
 }
 
+/* Contact section styles */
 .contact {
     background: rgba(0, 0, 0, 0.8);
     padding: 2rem 0;
@@ -123,6 +133,7 @@ header nav ul li a {
     margin-top: 1rem;
 }
 
+/* Footer styles */
 footer {
     background: rgba(0, 0, 0, 0.8);
     color: #fff;
@@ -145,4 +156,26 @@ footer ul li {
 footer ul li a {
     color: #fff;
     text-decoration: none;
+}
+
+/* Slide animation for sections */
+section {
+    display: none;
+    animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Show active section */
+section.active {
+    display: block;
 }
