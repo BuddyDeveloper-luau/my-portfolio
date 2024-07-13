@@ -12,28 +12,56 @@
             <h1 class="logo">ScriptedBuddy's Portfolio</h1>
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Me</a></li>
-                    <li><a href="previous-work.html">Previous Work</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#previous-work">Previous Work</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="hero">
+        <section id="home" class="hero active">
             <div class="container">
                 <h2>Welcome To My Portfolio!</h2>
-                <p>This Website is for you to see all my past work and find out more about me or contact me! You're either here out of personal interest or im doing a Scripting / Programming Commission for you!</p>
-                <a href="about.html" class="cta-button">Learn More</a>
+                <p>This Website is for you to see all my past work and find out more about me or contact me! You're either here out of personal interest or I'm doing a Scripting / Programming Commission for you!</p>
+                <a href="#about" class="cta-button">Learn More</a>
             </div>
         </section>
 
-        <section class="contact">
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>I am ScriptedBuddy, a passionate programmer and creator. Here's a bit about myself...</p>
+            </div>
+        </section>
+
+        <section id="previous-work" class="features">
+            <div class="container">
+                <h2>Previous Work</h2>
+                <div class="feature">
+                    <p>Here are some examples of my previous projects:</p>
+                    <!-- Insert your previous work examples here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
             <div class="container">
                 <h2>Contact Me!</h2>
-                <p>Contact me on Discord: <a href="https://discordapp.com/users/scriptedbuddy" target="_blank">here!</a></p>
+                <form action="#">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name">
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message"></textarea>
+
+                    <button type="submit">Send Message</button>
+                </form>
             </div>
         </section>
         
@@ -43,38 +71,28 @@
         <div class="container">
             <p>&copy; 2024 ScriptedBuddy</p>
             <ul>
-                <li><a href="https://discordapp.com/users/scriptedbuddy">Contact</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </footer>
 
     <script>
-document.addEventListener("DOMContentLoaded", function() {
-    // Get all navigation links
-    const navLinks = document.querySelectorAll("header nav ul li a");
-
-    // Add click event listener to each link
-    navLinks.forEach(link => {
-        link.addEventListener("click", function(event) {
-            event.preventDefault();
-
-            // Remove 'active' class from all sections
-            document.querySelectorAll("section").forEach(section => {
-                section.classList.remove("active");
+    document.addEventListener("DOMContentLoaded", function() {
+        const navLinks = document.querySelectorAll("header nav ul li a");
+        navLinks.forEach(link => {
+            link.addEventListener("click", function(event) {
+                event.preventDefault();
+                document.querySelectorAll("section").forEach(section => {
+                    section.classList.remove("active");
+                });
+                const href = this.getAttribute("href");
+                const section = document.querySelector(href);
+                if (section) {
+                    section.classList.add("active");
+                }
             });
-
-            // Get the href attribute of the clicked link (e.g., 'about.html')
-            const href = this.getAttribute("href").substring(0, this.getAttribute("href").lastIndexOf("."));
-
-            // Find the corresponding section and add 'active' class to display it
-            const section = document.querySelector(`.${href}`);
-            if (section) {
-                section.classList.add("active");
-            }
         });
     });
-});
-</script>
-
+    </script>
 </body>
 </html>
